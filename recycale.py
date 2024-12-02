@@ -53,9 +53,9 @@ def layout_items(items_to_layout):
 def animate_items(items_to_animate):
     global animations
     for i in items_to_animate:
-        dur=START_SPEED-current_level
+        dur= max(1, START_SPEED - current_level)
         i.anchor=("center","bottom")
-        animation= animate(i,duration=dur,on_finished=handle_game_over,y=HEIGHT)
+        animation= animate(i,duration=dur,on_finished=handle_game_over,y=HEIGHT+100)
         animations.append(animation)
 def handle_game_over():
     global game_over
